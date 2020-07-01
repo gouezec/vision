@@ -102,7 +102,7 @@ class Net2(nn.Module):
         ## x = self.pool(F.relu(self.conv1(x)))
         x = self.drop1(self.pool1(F.relu(self.conv1(x))))
         x = self.drop2(self.pool2(F.relu(self.conv2(x))))
-		x = self.drop3(self.pool3(F.relu(self.conv3(x))))
+        x = self.drop3(self.pool3(F.relu(self.conv3(x))))
         x = x.view(x.size(0), -1)
         x = self.dropd1(F.relu(self.dense1(x)))
         x = self.dense2(x)
