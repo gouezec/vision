@@ -68,7 +68,7 @@ class Net2(nn.Module):
         # As an example, you've been given a convolutional layer, which you may (but don't have to) change:
         # 1 input image channel (grayscale), 32 output channels/feature maps, 5x5 square convolution kernel
         # input shape
-		DROP = 0.2
+        DROP = 0.2
         self.conv1 = nn.Conv2d(1, 32, 5)
         # ouput shape: 32 x 220x220 
         
@@ -89,8 +89,7 @@ class Net2(nn.Module):
         self.drop3 = nn.Dropout(DROP)
         self.pool3 = nn.MaxPool2d(4)
         # ouput shape:  128x 13x13 
-
-        
+	
         self.dense1 = nn.Linear(21632, 1000)
         self.dropd1 = nn.Dropout(DROP)
         self.dense2 = nn.Linear(1000, 136)
