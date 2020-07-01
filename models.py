@@ -80,21 +80,18 @@ class Net2(nn.Module):
                             nn.MaxPool2d(4),   #32 x 55x55
                             nn.Dropout(DROP),
 
-                            nn.Conv2d(32,64,3),#64 x 53x53
+                            nn.Conv2d(32,64,5),#64 x 51x51
                             nn.ReLU(),
-                            nn.MaxPool2d(3),   #64 x 18x18
+                            nn.MaxPool2d(3),   #64 x 17x17
                             nn.Dropout(DROP),
 
-                            nn.Conv2d(64,128,2),#128 x 17x17
+                            nn.Conv2d(64,128,3),#128 x 15x15
                             nn.ReLU(),
-                            nn.MaxPool2d(2),   #128 x 8x8
+                            nn.MaxPool2d(3),   #128 x 5x5
                             nn.Dropout(DROP))
 
         self.regression = nn.Sequential(     
-                            nn.Linear(128*8*8, 1000),
-                            nn.ReLU(),
-                            nn.Dropout(DROP),
-                            nn.Linear(1000, 1000),
+                            nn.Linear(3200, 1000),
                             nn.ReLU(),
                             nn.Dropout(DROP),
                             nn.Linear(1000, 136))
